@@ -102,7 +102,7 @@ contract SupplyChain {
     payable
     forSale(sku)
     paidEnough(items[sku].price)
-    //checkValue(sku)
+    checkValue(sku)
   {
     items[sku].seller.transfer(items[sku].price);
     items[sku].buyer = msg.sender;
