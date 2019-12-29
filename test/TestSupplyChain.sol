@@ -79,6 +79,10 @@ contract TestSupplyChain {
 
         // item is purchased so the state should be 'ForSale'
         Assert.notEqual(getItemState(itemSku), uint256(State.ForSale), "Item should not be marked as ForSale");
+
+	// buy item that is not for Sale
+	result = buyerProxy.purchaseItem(itemSku, offer);
+	Assert.isFalse(result, "Buyer should not be able to buy an item not marked as ForSale");
     }
     // shipItem
     // test for calls that are made not by the seller
